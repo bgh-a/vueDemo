@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Vue 实例（就是下方el 选中的）所控制的这个元素区域，就是我们的  V  视图 -->
+    <div id="app">
+        <p>{{ msg }}</p>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    // 当我们导入包之后，在浏览器的内存中，就多了一个Vue构造函数
+    // 注意：我们 new 出来的这个 vm 对象，就是我们 MVVM中的 VM 调用者
+    var vm = new Vue({
+        el:"#app",
+        // 这里的data就是 MVVM中 M ,专门用来保存  每个页面的数据的
+        data:{
+            msg: '欢迎学习Vue'
+        }
+    })
+
+</script>
