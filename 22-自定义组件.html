@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <welcome-button @nizi="sayHello"></welcome-button>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.component('welcome-button',{
+        template:`
+            <button v-on:click='welcome'>经历</button>
+        `,
+        data:function(){
+            return{
+                akang:"大北京那",
+            }
+        },
+        methods:{
+            welcome:function(){
+                this.$emit('nizi',this.akang)
+            }
+        }
+    })
+
+    new Vue({
+        el:'#app',
+        methods:{
+            sayHello(value){
+                console.log(value)
+            },
+        }
+    })
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>哈哈，Vue</h2>
+    <div id="app">
+        <ol>
+            <todo-item></todo-item>
+        </ol>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.component('todo-item',{
+        template: '<li>这是一个待办项目</li>'
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message:'这是一个消息'
+        }
+    })
+
+</script>

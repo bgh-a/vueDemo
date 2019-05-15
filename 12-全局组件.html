@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <hou-a-kang :nizi="message"></hou-a-kang>
+        <jubu></jubu>
+    </div>
+    <h2>这是分割线</h2>
+    <div id="hou">
+        <hou-a-kang :nizi="message"></hou-a-kang>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+    // 注册局部组件
+    var hello = {
+        template:`<p>俺是局部组件</p>`
+    }
+    Vue.component('hou-a-kang',{
+        props:['nizi'],
+        template:`<p> 在北京呐 {{ nizi }}</p>`
+    })
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message:"我要把这个vue给学好了"
+        },
+        components:{
+            'jubu':hello,
+        }
+    });
+
+
+    var hou = new Vue({
+        el:'#hou',
+        data:{
+            message:"北京真的是不好生存"
+        },
+       
+    })
+
+
+
+</script>

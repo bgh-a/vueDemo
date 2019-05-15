@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+    .el-tree-node__label{
+        position: relative;
+      }
+      .el-tree-node__label:before{
+        content:'';
+        width:20px;
+        height: 20px;
+        display: block;
+        position:absolute;
+        top:0px;
+        left:-24px;
+        z-index:999;
+      }
+      .el-checkbox__inner{
+        top:0;
+      }
+  </style>
+    <title>element-ui树形控件</title>
+  </head>
+<body>
+    <div id="app">
+      <el-tree
+        :data="treeData"
+        show-checkbox
+        node-key="id"
+        check-on-click-node
+        :default-expand-all="true"
+        :check-strictly="true"
+        :expand-on-click-node="false"
+        @node-click="nodeClick"
+      >
+      </el-tree>
+    </div>
+  <script>
+  let vm = new Vue({
+    el: '#app',
+    data: {
+      treeData: [{
+        id: 1,
+        label: '一级 1',
+        children: [{
+          id: 4,
+          label: '二级 1-1',
+          children: [{
+            id: 9,
+            label: '三级 1-1-1',
+            children: [{
+              id: 11,
+              label: '四级 1-1-1',
+            }]
+          }, {
+            id: 10,
+            label: '三级 1-1-2'
+          }]
+        }]
+      }, {
+        id: 2,
+        label: '一级 2',
+        children: [{
+          id: 5,
+          label: '二级 2-1'
+        }, {
+          id: 6,
+          label: '二级 2-2'
+        }]
+      }, {
+        id: 3,
+        label: '一级 3',
+        children: [{
+          id: 7,
+          label: '二级 3-1'
+        }, {
+          id: 8,
+          label: '二级 3-2'
+        }]
+      }]
+    },
+    methods: {
+      nodeClick(data, node){    
+        vm.childNodesChange(node);
+        vm.parentNodesChange(node);
+      },
+      childNodesChange(node){
+        let len = node.childNodes.length;
+        for(let i = 0; i < len; i++){
+          node.childNodes[i].checked = false;
+          vm.childNodesChange(node.childNodes[i]);
+        }   
+      },
+      parentNodesChange(node){
+        if(node.parent){
+          for(let key in node){
+            if(key == "parent"){
+              node[key].checked = true;
+              vm.parentNodesChange(node[key]);
+            }
+          }
+        }      
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1.双大括号表达式</h2>
+        <p>{{ msg }}</p>
+        <p>{{ msg.toUpperCase() }}</p>
+
+        <h2>2.强制数据绑定</h2>
+        <a href="url">访问指定站点1</a>
+        <a v-bind:href="url">访问指定站点2</a><br>
+        <a :href="url">访问指定站点3</a>
+
+        <h2>3.绑定事件监听</h2>
+        <button v-on:click="handleClick">点我1</button>
+        <button @click="handleClick">点我2</button>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            msg:"NBA I Love This Game!",
+            url:"http://www.baidu.com"
+        },
+        methods:{
+            handleClick(){
+                alert("处理")
+            }
+        }
+    })
+
+</script>

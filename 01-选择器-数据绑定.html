@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+
+</body>
+</html>
+<script src="./d3.min.js"></script>
+<script>
+
+    // console.log(d3);
+    // var p = d3.select('p');
+
+    var p = d3.selectAll('p');
+    // console.log(p);
+    var arr = [3,6,9]
+    var update = p.data(arr)
+    // console.log(update)
+    update.text(d=>d)
+
+</script>

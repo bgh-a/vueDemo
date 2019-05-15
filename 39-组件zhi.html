@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ age }}
+        <button v-on:click="zengjia">我是父组件中的按钮哦</button>
+        <hr>
+        <my-compon v-bind:c.sync="age"></my-compon>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    const MyCompon = Vue.extend({
+        template:`
+            <div>
+                <h1>我是MyCompo组件，我的a值是{{ a }},我的c值是:{{ c }} </h1>
+                <input type="button" value="+++" v-on:click="add"/>
+
+            </div>
+        `,
+        data:function(){
+            return {
+                a:2222
+            }
+        },
+        props:["c"],
+        methods:{
+            add:function(){
+                this.c++
+            }
+        }
+    });
+
+
+
+    new Vue({
+        el:"#app",
+        data:{
+            age:23,
+        },
+        components:{
+            MyCompon,
+        },
+        methods:{
+            zengjia:function(){
+                this.age ++;
+            }
+        }
+    })
+
+</script>

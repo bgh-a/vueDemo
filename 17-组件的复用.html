@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter><br>
+        <button-counter></button-counter><br>
+        <button-counter></button-counter>
+
+        <counter></counter>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.component('button-counter',{
+        data:function(){
+            return {
+                message:"vue的全家桶"
+            }
+        },
+        template:"<p>{{ message }}<p>"
+    })
+
+    Vue.component('counter',{
+        data:function(){
+            return {
+                quju:"全局组件"
+            }
+        },
+        template:"<p>{{ quju }}<p>"
+    })
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        }
+    })
+
+</script>

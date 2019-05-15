@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+        <br>
+        <br>
+        <button v-on:click="nice">获取第一个值</button>
+
+        <input type="text" ref="hei">
+        <button v-on:click="enne">获取第二个的值</button>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:"想啊想，嘿呀嘿"
+        },
+        methods:{
+            nice(){
+                alert(this.message);
+            },
+            enne(){
+                alert(this.$refs.hei.value);
+            }
+        }
+    })
+
+</script>

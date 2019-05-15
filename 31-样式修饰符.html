@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        .classA {
+            color:red;
+        }
+
+        .classB {
+            background:blue;
+        }
+
+        .classC {
+            font-size: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>1.class绑定: :class="xxx"</h2>
+        <p class="classB" :class="a">表达式是字符串:'classA'</p>
+        <p :class="{classA:isA,classB:isB}">表达式是对象:{classA:isA,classB:isB}</p>
+        <p :class="['classA','classC']">表达式是数组：['classA','classB']</p>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    new Vue({
+        el:"#app",
+        data:{
+            a:"classA",
+            isA:true,
+            isB:false,
+            color:'red',
+            fontSize:"20px"
+        }
+    })
+
+</script>

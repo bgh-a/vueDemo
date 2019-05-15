@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>嚯呦 Vue</h2>
+    <div id="app">
+        <input type="text" v-model="demo.name">
+
+        {{ value }}
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            demo:{
+                name:"侯阿康",
+                age:23,
+                sex:"男"
+            },
+            value:"",
+        },
+        watch:{
+            newName(val){
+                this.value = val;
+            },
+            demo:{
+                handler:function(val,oldVal){
+                    console.log(val.name)
+                },
+                deep:true
+            }
+        },
+        computed:{
+            newName(){
+                return this.demo.name
+            }
+        },
+        methods: {
+            heiha() {
+                this.all = this.one;
+                console.log(this.all);
+            }
+        }
+    })
+
+</script>

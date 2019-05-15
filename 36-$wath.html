@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="add">+</button>
+        <button @click="min">-</button>
+        <hr>
+        {{ a }}
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var app = new Vue({
+        el : "#app",
+        data : {
+
+            a : 1
+        },
+        methods:{
+            add : function(){
+                this.a++;
+            },
+            min : function(){
+                this.a--;
+            }
+        },
+        watch:{
+            a:function(val){
+                if(val === 5){
+                    this.a = 22
+                }
+            }
+        }
+    });
+    // app.$watch('a',function(newvalue,oldvalue){
+    //     // console.log(newvalue,oldvalue);
+    //     if(newvalue === 5){
+    //         app.a = 12;
+    //     }
+    // })
+
+</script>

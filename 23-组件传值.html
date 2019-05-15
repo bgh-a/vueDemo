@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <haha @nizi="sayHello"></haha>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.component('haha',{
+        template:`
+            <button @click="welcome">点我实施</button>
+        `,
+        data:function(){
+            return{
+                ziji:"我是子组件中的属性值"
+            }
+        },
+        methods:{
+            welcome:function(){
+                this.$emit('nizi',this.ziji)
+            }
+        }
+    });
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            sayHello(value){
+                console.log(value);
+            }
+        }
+    })
+
+
+</script>

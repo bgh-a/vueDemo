@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ fullName }}
+    </div>
+
+
+    <div id="demo">
+        {{ fullName }}
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            firstName:'Foo',
+            lastName:'Bar',
+            fullName:'Foo Bar'
+        },
+        watch:{
+            firstName:function(val){
+                this.fullName = val + ' ' + this.lastName
+            },
+            lastName:function(val){
+                console.log("lastName改动了，是："+val)
+            }
+        }
+    })
+
+
+    var app = new Vue({
+        el:"#demo",
+        data:{
+            firstName:"Kobe",
+            lastName:"Bryant",
+            fullName:'Kobe Bryant'
+        },
+        watch:{
+            fullName:function(val){
+                console.log("你连名字都能改，好厉害"+val)
+            }
+        }
+    })
+
+</script>

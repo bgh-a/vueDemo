@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+     .img{
+         width: 100%;
+     }
+    
+    </style>
+   <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+   <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+   <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <i-button type="success" long>提交</i-button>
+        <i-button @click="show">Click me!</i-button>
+        
+        <i-upload action="//jsonplaceholder.typicode.com/posts/">
+            <i-button icon="ios-cloud-upload-outline">Upload files</i-button>
+        </i-upload>
+
+        <i-col span="12">
+            <date-picker type="date" placeholder="Select date" style="width: 200px"></date-picker>
+        </i-col>
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            show:function(){
+                alert("iView")
+            }
+        }
+    })
+
+</script>

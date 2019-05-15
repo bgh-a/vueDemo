@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div ref="box">你说你来了这么久了，真的你到底学到啥了</div>
+
+        <button @click="nice">ref的测试</button>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            nice(){
+                this.$refs.box.style.background="pink"
+            }
+        }
+    })
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my-compo></my-compo>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+  
+    //创建一个组件构造器
+var MyCompo = Vue.extend({
+	template : `
+		<div>
+			<h1>我是my-compo组件</h1>
+		</div>
+	`
+});
+
+//注册，注册在全局。要确保在初始化根实例之前注册了组件。
+Vue.component("my-compo",MyCompo);
+    // 初始化根实例
+    new Vue({
+        el:'#app',
+    });
+
+
+</script>

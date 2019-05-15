@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript">
+	//设定倒数秒数 
+	var count = 3;
+	//写一个方法，显示倒数秒数  数到0后跳转页面  
+	function countDown(){
+		//将count显示在div中
+		document.getElementById("div1").innerHTML= count;
+		//没执行一次，count减1
+		count -= 1;
+		//count=0时，跳转页面
+		if(count==0){
+			location.href="http://www.baidu.com";
+                        //window.location.href="index.html";
+		}
+		//每秒执行一次,showTime()
+		setTimeout("countDown()",1000);
+	}
+	//执行countDown方法
+	countDown();
+</script>

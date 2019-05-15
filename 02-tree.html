@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tree 树状图</title>
+    <style>
+    
+        /* 小圈圈 */
+        .node circle {
+            fill:#fff;
+            stroke:steelblue;
+            stroke-width: 1.5px;
+        }
+
+        /* 文字 */
+        .node text{
+            font-size: 12px;
+        }
+
+        /* 连线 */
+        .link {
+            fill:none;
+            stroke: #ccc;
+            stroke-width: 1.5px;
+        }
+    </style>
+    <script src="./js/d3.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+        //1. 选中页面给页面添加SVG标签、设置SVGA绘制区域的宽和高、添加g元素（就是个容器，类似于div）  设置位置
+
+        var width = 600,
+                 height = 600;
+
+
+
+        var svg = d3.select('body')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('transform', 'translate(50,0)')
+
+        // 2.生成树状图布局，设置尺寸
+        var tree = d3.layout.tree()
+            .size([width,height-320])
+
+        // 3.对角线生成器
+        var diagonal = d3.svg.diagonal()
+            .projection( d => [d.y, d.x]);
+
+
+        // 4. 请求数据
+        d3.json('./data/city.json',function (err, root){
+            // console.log(root)
+            // a.获取节点数组和连线数组
+            var nodes = tree.nodes(root);
+            var links = tree.links(nodes);
+            // console.log(nodes,links);
+
+            //b. 生成连线
+            var link = svg.selectAll('.link')
+                .data(links)
+                .enter()
+                .append('path')
+                .attr('class','link')
+                .attr('d',diagonal)
+               
+                
+            // c.生成节点
+            var node = svg.selectAll('.node')
+                .data(nodes)
+                .enter()
+                .append('g')
+           .append("a")
+           .attr("xlink:href", function(d){return d.nice;})
+                .attr('class','node')
+                .attr('transform',function (d) {
+                    return 'translate('+d.y+','+d.x+')'    
+                });
+
+            // d.加圆圈
+            node.append('circle')
+                .attr('r',7)
+            
+         
+
+            // e.加上文本
+            node.append('text')
+                .text(d => d.name)
+                .attr('dx',d=>d.children ? -15 : 15)
+                .attr('dy',5)
+                .attr('text-anchor',d=>d.children ? 'end' : 'start')
+                .append("svg:a")
+            
+           
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <hou v-on:nizi="hello"></hou>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.component('hou',{
+        template:`
+            <button @click="welcome">点击实时</button>
+        `,
+        data:function(){
+            return {
+                demo:"把vue学的更详细一些"
+            }
+        },
+        methods:{
+            welcome:function(){
+                this.$emit('nizi',this.demo);
+            }
+        }
+    });
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            hello(value){
+                console.log(value)
+            }
+        }
+    })
+
+</script>

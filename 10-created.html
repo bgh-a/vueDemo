@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+    
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:"实例生命周期钩子",
+        },
+        created:function(){
+            // this 指的是 vm实例,生命周期钩子的this上下文指向调用它的Vue实例
+            console.log("信息是："+this.message);
+        }
+    })
+
+</script>
