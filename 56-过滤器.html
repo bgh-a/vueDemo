@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        全局过滤器的定义语法
+        Vue.filter("过滤器的名称",function(){})
+
+        过滤器中的function，第一个参数，已经被规定死了，永远都是 过滤器 管道符前面 传递过来的数据
+
+        Vue.filter('过滤器的名称',function (data) {
+            return data + "我是过滤器带来的"
+        })
+     -->
+
+     <div id="app">
+
+        <h1>{{ msg | msgFormat }}</h1>
+
+     </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    // 定义一个Vue 全局的过滤器，名字叫做 msgFormat 
+    Vue.filter('msgFormat',function(msg){
+        // 字符串的 replace 方法，第一个参数，除了可写一个 字符串之外，还可以定义一个正则
+        return msg.replace(/单纯/g,'邪恶')
+    })
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg : "曾经，我也是一个单纯的少年，单纯的我，傻傻的问，谁是世界上最单纯的男人"
+        },
+        methods:{}
+    })
+
+</script>

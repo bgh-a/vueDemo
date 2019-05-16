@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        .red {
+            color: red;
+        }
+    
+        .thin {
+            font-weight: 200;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .active{
+            letter-spacing: 0.5em;
+            /* 这个是对中文起作用的   另一个 英文的是word-spacing */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 第一种使用方式：直接传递一个数组  注意：这里的class需要使用 v-bind做数据绑定 -->
+        <!-- <h1 :class="['red','thin','italic']">你甘于现状吗</h1> -->
+        <!-- <h1 :class="['thin','itatic',flag?'active':'']">God is a girl</h1> -->
+        <h1 :class="['thin','italic',{'active':flag}]">这是一个来自不平凡的人</h1>
+        <h1 :class="{red:true}">虽然呢，没事噢</h1>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            flag:true
+        }
+    })
+</script>
