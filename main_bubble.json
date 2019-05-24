@@ -1,0 +1,33 @@
+{"name":"bubble", "children": [
+    {"name":"北京","description":"Atlas of Global Agriculture",
+    "children":[
+        {"name": "长城","address":"https://www.baidu.com/", "note":"你是我的超级英雄"},
+        {"name": "八达岭","address":"https://www.taobao.com/"},
+        {"name": "Crop Land","address":"https://www.taobao.com/"},
+        {"name": "Crop Land","address":"https://www.taobao.com/"},
+        {"name": "Crop Land","address":"https://www.taobao.com/"},
+        {"name": "Crop Land","address":"https://www.taobao.com/"},
+
+        {"name": "Crop Yields","address":"http://environment.umn.edu", "note":"Maize, wheat, rice, and soybean yields in 2000"}
+    ]},
+    
+    {"name": "上海", "description": "Virtual Lab of Global Agriculture",
+    "children":[
+        {"name":"东方明珠","address":"https://www.jd.com/","note":"上海"},
+        {"name":"Yield Gap","address":"http://d3js.org", "note":"The gap between attainable yields and actual yields, with modeled yields assuming the percentage of gap closed."},
+        {"name":"Fertilizer","address":"http://sunsp.net"}
+    ]},
+    {"name":"Nutshell", "description":"Profiles of Country",
+    "children":[
+        {"name":"Efficiency","address":"http://d3js.org"},
+        {"name":"Excess Nutrient","address":"http://d3js.org"},
+        {"name":"Economy","address":"http://d3js.org"},
+        {"name":"Agriculture","address":"http://uis.edu/ens"}
+    ]},
+    {"name":"Data", "description":"Crop Data in 5 minutes grid",
+    "children":[
+        {"name":"Geography","address":"http://www.earthstat.org/"},
+        {"name":"Crop Land","address":"http://www.earthstat.org/"},
+        {"name":"Crop Yields","address":"http://www.earthstat.org/"}
+    ]}
+    ]}
