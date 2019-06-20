@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Vue 实例（就是下方el 选中的）所控制的这个元素区域，就是我们的  V  视图 -->
+    <div id="app">
+        <router-link to="/account">Account</router-link>
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <template id="tmp1">
+            <div>
+                <h1>这是 Account 组件 </h1>
+
+               
+            </div>
+        </template>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script src="./js/vuerouter.js"></script>
+<script>
+    // 组件的模板对象
+    var account = {
+        template: '#tmp1'
+
+    }
+
+    var login = {
+        template:'<h3>登录</h3>'
+    }
+
+    var register = {
+        template:'<h3>注册</h3>'
+    }
+
+    var router = new VueRouter({
+        routes: [
+            {
+                path:'/',redirect:'/login'
+            },
+            {
+                path:'/account',
+                component: account,
+               
+            },
+            {
+                path:'/login',
+                component: login,
+               
+            },
+            {
+                path:'/register',
+                component: register,
+               
+            }
+        ]
+    })
+   
+    // 创建 Vue 实例，得到 ViewModel
+    var vm = new Vue({
+        el:"#app",
+        // 这里的data就是 MVVM中 M ,专门用来保存  每个页面的数据的
+        data:{
+            msg: '欢迎学习Vue'
+        },
+        router
+    })
+
+</script>
