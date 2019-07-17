@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <com-article :articles="articleList"></com-article>
+
+    </div>
+</body> 
+</html>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            articleList: ['红楼梦', '西游记', '三国演义'],
+        },
+        methods: {},
+        components: {
+
+            comArticle: {
+
+                template: '<span v-for="(item, index) in articles" :key="index">{{item}}</span>',
+                props: ['articles']
+            }
+        },
+
+    })
+</script>

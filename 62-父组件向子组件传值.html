@@ -33,7 +33,7 @@
                         content: "子组件中的内容"
                     }
                 },
-                template:"<h1>这是子组件-----</h1>",
+                template:"<h1>这是子组件----- {{ parentmsg }}</h1>",
                 // 注意：组件中所有props中的数据，都是通过 父组件传递给子组件的
                 // props 中的数据，都是只读的
                 props: ['parentmsg'],
@@ -42,7 +42,6 @@
                
                 },
                 components: {}
-            }
         }
     })
 
