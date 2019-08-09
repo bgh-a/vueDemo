@@ -8,27 +8,62 @@
 </head>
 <body>
     <div id="app">
-        <com-article :articles="articleList"></com-article>
-
+        
+        <com-article :articles="articleList" @caolaili="sayHello"></com-article>
+        <p>{{currentIndex}}</p>
     </div>
-</body> 
+</body>
 </html>
 <script src="./js/vue.js"></script>
 <script>
+
     var vm = new Vue({
-        el: "#app",
-        data: {
-            articleList: ['红楼梦', '西游记', '三国演义'],
+        el: '#app',
+        created() {
+            
         },
-        methods: {},
-        components: {
-
-            comArticle: {
-
-                template: '<span v-for="(item, index) in articles" :key="index">{{item}}</span>',
-                props: ['articles']
+        data: {
+            msg: "123 啊 父组件中的数据",
+            articleList: ['红楼梦', '西游记', '三国演义'],
+            currentIndex: -1
+        },
+        methods: {
+            sayHello(val) {
+                this.currentIndex = val
+                console.log(val)
             }
         },
-
+        components: {
+            
+            comArticle:{
+                data() {
+                    // 子组件中的data数据，并不是通过 父组件传递过来的，而是子组件自身私有的，
+                    // data 上的数据是可读可写的
+                    return {
+                        title: "子组件中的title",
+                        content: "子组件中的内容"
+                    }
+                },
+                template:'<div><p v-for="(item, index) in articles" :key="index" @click="emitIndex(index)">{{item}}</p></div>',
+                // 注意：组件中所有props中的数据，都是通过 父组件传递给子组件的
+                // props 中的数据，都是只读的
+                props: ['articles'],
+                directives: {},
+                filters: {},
+                created(){
+                    this.$on('caolaili',function(index){
+                    console.log("jajdjdjd"+index)
+            })
+                },
+                methods:{
+                    emitIndex:function(index) {
+                        this.$emit("caolaili",index)
+                    }
+                }
+               
+                },
+                
+        }
     })
+
 </script>
